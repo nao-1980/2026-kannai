@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>関内フェスタ当日資料</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: pastel festival sheet — peach header band, tab bar, white cards on warm paper ground; colors match the printed A4 set */
+:root{
+  --ground:#fbf8f5; --panel:#ffffff; --ink:#2f3843; --muted:#66727f; --line:#ece6e0;
+  --peach:#fde3d6; --peach-ink:#8a4a36; --peach-bd:#f3c6b0;
+  --sky:#dcebf8; --sky-ink:#2f5578; --mint:#d9f0e2; --mint-ink:#2e6b48;
+  --pink:#fbd9df; --pink-ink:#9a3448; --lav:#ece6f8; --lav-ink:#5b4a8a; --lemon:#fff2c9; --lemon-ink:#7d5f10;
+  --fm:#d8ecfa; --fm-ink:#0b5f9c; --table:#e7f0fa; --table-ink:#46698d; --fire:#ffecd2; --fire-ink:#8a5410;
+  --display:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#16181c; --panel:#1f232a; --ink:#e8ebef; --muted:#a5afba; --line:#2e343d;
+  --peach:#4a3128; --peach-ink:#ffcdb6; --peach-bd:#6a4535; --sky:#233a52; --sky-ink:#b9d7f2; --mint:#1f3d2d; --mint-ink:#b6e6c8;
+  --pink:#4a2630; --pink-ink:#ffc2ce; --lav:#33294d; --lav-ink:#d7ccf5; --lemon:#40371b; --lemon-ink:#f5df9c;
+  --fm:#1d3b55; --fm-ink:#a9d6fb; --table:#22303f; --table-ink:#a9c4e0; --fire:#46351d; --fire-ink:#ffd9a3; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#16181c; --panel:#1f232a; --ink:#e8ebef; --muted:#a5afba; --line:#2e343d;
+  --peach:#4a3128; --peach-ink:#ffcdb6; --peach-bd:#6a4535; --sky:#233a52; --sky-ink:#b9d7f2; --mint:#1f3d2d; --mint-ink:#b6e6c8;
+  --pink:#4a2630; --pink-ink:#ffc2ce; --lav:#33294d; --lav-ink:#d7ccf5; --lemon:#40371b; --lemon-ink:#f5df9c;
+  --fm:#1d3b55; --fm-ink:#a9d6fb; --table:#22303f; --table-ink:#a9c4e0; --fire:#46351d; --fire-ink:#ffd9a3; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--peach)}
+header.top .wrap{padding-block:18px 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;justify-content:space-between}
+.kicker{font-family:var(--display);font-weight:700;color:var(--peach-ink);font-size:13px;letter-spacing:.06em}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(22px,4.5vw,32px);line-height:1.25;margin:2px 0 0;color:var(--ink);text-wrap:balance}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--panel);color:var(--peach-ink);border:1.5px solid var(--peach-bd);font-family:var(--display);font-weight:800;border-radius:999px;padding:4px 14px;font-size:14px;text-decoration:none}
+a.pill:hover{background:var(--ground)}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--peach);border-bottom:1px solid var(--peach-bd)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--peach)}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;align-items:flex-end;padding-top:4px}
+nav.tabs a{font-family:var(--display);font-weight:700;font-size:15px;color:var(--peach-ink);text-decoration:none;padding:9px 18px;border-radius:10px 10px 0 0;white-space:nowrap;opacity:.85}
+nav.tabs a:hover{opacity:1;background:rgba(255,255,255,.35)}
+nav.tabs a[aria-current="page"]{background:var(--ground);color:var(--ink);opacity:1}
+nav.tabs a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--peach-ink);outline-offset:2px}
+main .wrap{padding-block:18px 48px}
+.view{display:grid;gap:16px}
+.view[hidden]{display:none}
+.note{color:var(--muted);font-size:13px}
+/* schedule */
+.nowbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.nowbar b{font-family:var(--display)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.phase{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.phase>h2{margin:0;padding:8px 16px;font-family:var(--display);font-size:17px;display:flex;gap:10px;align-items:baseline}
+.phase>h2 small{font-size:13px;opacity:.8;font-weight:700}
+.ph-prep>h2{background:var(--sky);color:var(--sky-ink)} .ph-show>h2{background:var(--peach);color:var(--peach-ink)} .ph-down>h2{background:var(--mint);color:var(--mint-ink)}
+.row{display:grid;grid-template-columns:62px 1fr;gap:10px;padding:8px 16px;border-top:1px solid var(--line)}
+.row .t{font-family:var(--display);font-weight:800;font-variant-numeric:tabular-nums}
+.ph-prep .t{color:var(--sky-ink)} .ph-show .t{color:var(--peach-ink)} .ph-down .t{color:var(--mint-ink)}
+.row .m{min-width:0}
+.row .sub{font-size:13px;color:var(--muted);margin:2px 0 0;padding-left:1em;text-indent:-1em}
+.row .sub::before{content:"・"}
+.row.r-st{background:var(--pink)} .row.r-st .x{font-weight:700}
+.row.r-mc{background:color-mix(in srgb,var(--lav) 55%,transparent)}
+.row.r-fm{background:var(--fm)} .row.r-fm .x{font-weight:700;color:var(--fm-ink)}
+.row.r-key{background:var(--lemon)} .row.r-key .x{font-weight:700}
+.row.is-now{outline:2px solid var(--peach-ink);outline-offset:-2px}
+.tag{display:inline-block;font-size:11px;font-weight:800;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px;font-family:var(--display)}
+.tg-st{background:var(--pink);color:var(--pink-ink);border:1px solid var(--pink-ink)} .tg-end{background:var(--panel);color:var(--pink-ink);border:1px solid var(--pink)}
+.tg-mc{background:var(--lav);color:var(--lav-ink)} .tg-fm{background:var(--fm);color:var(--fm-ink);border:1px solid var(--fm-ink)}
+.tg-sec{background:var(--lav);color:var(--lav-ink)} .tg-all,.tg-mtg{background:var(--lemon);color:var(--lemon-ink)}
+/* map */
+.mapcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:8px}
+.mapcard h2{margin:0;font-family:var(--display);font-size:18px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.mapcard h2 small{font-size:13px;color:var(--muted);font-weight:700}
+.mapscroll{overflow-x:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
+.mapscroll img{display:block;width:100%;min-width:760px;height:auto}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;border:1px solid #8ba6c4}
+.sw.peach{background:#ffeadb}.sw.blue{background:#d5e6f6}.sw.pink{background:#fbd5d5;border-color:#e9a9a9}
+.rent{display:flex;flex-wrap:wrap;gap:8px}
+.rent div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:13px}
+.rent b{font-family:var(--display);font-size:16px;font-variant-numeric:tabular-nums}
+/* list */
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:inherit;font-family:var(--display);font-weight:700;font-size:14px;border:1.5px solid var(--peach-bd);background:var(--panel);color:var(--peach-ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--peach-ink);color:var(--panel);border-color:var(--peach-ink)}
+.search{font:inherit;font-size:15px;color:var(--ink);background:var(--panel);border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;min-width:0;flex:1 1 200px;max-width:320px}
+.blockh{font-family:var(--display);font-size:18px;margin:6px 0 0;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.blockh small{font-size:13px;color:var(--muted)}
+.cards{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.booth{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:40px 1fr;gap:4px 10px;min-width:0}
+.booth .no{grid-row:span 3;width:36px;height:36px;border-radius:50%;background:#ffeadb;border:2px solid #8ba6c4;display:grid;place-items:center;font-family:var(--display);font-weight:800;color:#2b3440;font-size:15px}
+.booth .nm{font-weight:700;font-size:16px;line-height:1.35;min-width:0}
+.booth .it{font-size:14px;min-width:0}
+.booth .it b{font-variant-numeric:tabular-nums;margin-left:6px}
+.booth .ds{grid-column:2;font-size:12.5px;color:var(--muted);line-height:1.5}
+.booth .meta{grid-column:2;display:flex;flex-wrap:wrap;gap:4px 8px;font-size:12px;color:var(--muted);align-items:center}
+.lab{border-radius:4px;padding:0 6px;font-weight:700;font-size:12px}
+.lab.fire{background:var(--fire);color:var(--fire-ink)} .lab.flag{background:var(--pink);color:var(--pink-ink)} .lab.tbl{background:var(--table);color:var(--table-ink)}
+.cnt{font-variant-numeric:tabular-nums}
+.booth.sp-fm{background:var(--fm);border-color:var(--fm-ink)} .booth.sp-hq{background:var(--lemon)} .booth.sp-st{background:var(--pink)}
+.tot{font-size:13px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+@media (max-width:560px){.row{grid-template-columns:52px 1fr;padding:8px 12px}.cards{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div><div class="kicker">第23回 関内フード＆ハイカラフェスタ</div><h1>当日資料</h1></div>
+  <div class="when"><span class="pill">11/3（火・祝）11:00〜16:00</span><a class="pill" href="festa-20261103-a4.pdf" target="_blank" rel="noopener">A4印刷用PDF</a></div>
+</div></header>
+<nav class="tabs" aria-label="資料の切り替え"><div class="wrap">
+  <a href="#schedule" data-v="schedule">タイムスケジュール</a>
+  <a href="#map" data-v="map">配置図</a>
+  <a href="#list" data-v="list">出店者一覧</a>
+</div></nav>
+<main><div class="wrap">
+  <section class="view" id="v-schedule"></section>
+  <section class="view" id="v-map" hidden></section>
+  <section class="view" id="v-list" hidden></section>
+</div></main>
+
+<script id="data" type="application/json">{"schedule": [{"name": "準備", "span": "7:00〜10:30", "items": [{"t": "7:00", "k": "", "x": "テント、安全ポール、安全バー、テントを旭広告社から搬出／中谷さん立ち合い", "sub": ["tvk公開空地のポールとバーの元画像を撮影、終了後に同じ配置へ戻す"]}, {"t": "7:30", "k": "警備", "x": "警備員　弁天通りの2カ所は7:30〜、それ以外の場所は8:00〜", "sub": []}, {"t": "7:30", "k": "", "x": "秋山眼科からごみ箱回収", "sub": []}, {"t": "7:40", "k": "打合せ", "x": "①来れる方は是非！当日運営の最終打ち合わせ＆修正事項共有", "sub": []}, {"t": "8:00", "k": "", "x": "ダスキン到着、備品設置", "sub": []}, {"t": "8:00", "k": "警備", "x": "全ポジションに警備員配置＆車両通行規制開始／桜通り側はかならず案内を設置", "sub": ["備品数の確認を行いながらテントの看板、テント内に注意書きを貼る"]}, {"t": "9:00", "k": "", "x": "出店者準備開始", "sub": ["立て看板ポスター張り付け／3丁目の関内大通り、tvk前交差点、ミニストップ前、1丁目みなと大通り設置", "安全ポール＆バーの設置／3丁目の関内大通り、tvk前交差点、ミニストップ前、桜通り 海賊の前、桜通りセブンイレブン前", "ゴミ捨て場（2丁目シンコウパーク）ブルーシートを敷いてエリア完成", "電気自動車到着"]}, {"t": "9:00", "k": "", "x": "神奈川TOYOTAテント到着", "sub": []}, {"t": "9:30", "k": "全員", "x": "集合②／朝礼と確認、トイレ、片付け、内容について", "sub": ["警備員への確認・ここは通さないで！等の全体チェック", "参加してくれた店舗へトイレットペーパー配布"]}, {"t": "10:00", "k": "", "x": "お手伝いスタッフ集合（15名）", "sub": ["パンクラスSP到着", "参加料の回収開始"]}, {"t": "10:30", "k": "", "x": "ゴミ箱設置　各役割に振り分けて対応", "sub": ["【女性】エレガンス、ビーローズ、関内路上プロレス到着→控室へ案内", "diana迎えと送り／11:55出発　12:05噴水前出発", "ゴミ回収　20分に1回各通りのごみ箱を回収してゴミ袋をはめる", "トイレ巡回　20分に1回は常時巡回と清掃、チェックを行う／清掃道具もっていく", "各丁目のテーブルに案内チラシを貼る"]}]}, {"name": "営業・ステージ", "span": "11:00〜16:00", "items": [{"t": "11:00", "k": "開始", "x": "営業開始", "sub": []}, {"t": "11:00", "k": "FM", "x": "マリンFM　ごきげんラジオ", "sub": []}, {"t": "11:28", "k": "MC", "x": "MC　文明開化の横濱『舞踏会』　スレンダーパンダ　事前説明／呼び込み①", "sub": []}, {"t": "11:30", "k": "STAGE", "x": "文明開化の横濱『舞踏会』パフォーマンス　開始", "sub": []}, {"t": "11:55", "k": "STAGE_END", "x": "文明開化の横濱『舞踏会』パフォーマンス　終了", "sub": []}, {"t": "11:55", "k": "", "x": "diana迎え出発／男女2名ずつ", "sub": []}, {"t": "12:13", "k": "MC", "x": "MC　diana　スレンダーパンダ　事前説明／呼び込み②", "sub": []}, {"t": "12:15", "k": "STAGE", "x": "diana　パフォーマンス開始", "sub": []}, {"t": "12:30", "k": "STAGE_END", "x": "diana　パフォーマンス終了", "sub": ["終了後、横浜スタジアムまでおくる"]}, {"t": "12:58", "k": "MC", "x": "MC　関内路上プロレス　スレンダーパンダ　事前説明／呼び込み③", "sub": []}, {"t": "13:00", "k": "STAGE", "x": "関内路上プロレス　開始", "sub": []}, {"t": "13:45", "k": "STAGE_END", "x": "関内路上プロレス　終了", "sub": ["終了後に物販"]}, {"t": "14:13", "k": "MC", "x": "MC　ELEGANCE　スレンダーパンダ　事前説明／呼び込み④", "sub": []}, {"t": "14:15", "k": "STAGE", "x": "ELEGANCE　パフォーマンス開始", "sub": []}, {"t": "14:30", "k": "STAGE_END", "x": "ELEGANCE　パフォーマンス終了", "sub": []}, {"t": "14:58", "k": "MC", "x": "MC　スレンダーパンダ　前説明／呼び込み⑤", "sub": []}, {"t": "15:00", "k": "STAGE", "x": "B-ROSE　パフォーマンス開始", "sub": []}, {"t": "15:15", "k": "STAGE_END", "x": "B-ROSE　パフォーマンス終了", "sub": []}, {"t": "16:00", "k": "開始", "x": "イベント終了", "sub": []}]}, {"name": "撤収", "span": "16:10〜19:30", "items": [{"t": "16:10", "k": "", "x": "キッチンカートイレ出発", "sub": []}, {"t": "16:10", "k": "", "x": "志馬建設　到着　撤去開始", "sub": []}, {"t": "17:30", "k": "", "x": "テント、安全ポール、安全バーを旭広告社へ返却", "sub": []}, {"t": "17:30", "k": "", "x": "泰生ポーチ打ち上げ", "sub": []}, {"t": "18:00", "k": "", "x": "ダスキン回収", "sub": []}, {"t": "18:00", "k": "", "x": "武松商事ゴミ回収／ミニストップ前のパーキング", "sub": []}, {"t": "18:10", "k": "", "x": "最終確認と解散", "sub": ["ゴミの回収後は、特別駐車場へ　※袋の詰め替えは無し", "汁・液体については、紙で吸収してゴミ袋へ"]}, {"t": "19:30", "k": "", "x": "泰生ポーチ打ち上げ完全撤収", "sub": []}]}], "blocks": [{"id": "3", "title": "弁天通 3丁目", "sub": "関内大通り 〜 さくら通り", "map": "map-3chome.png", "rows": [{"no": "1", "name": "ランタンテーブル", "item": "秋に食べたくなる海鮮串", "price": "800", "desc": "秋の花が咲くように口いっぱいに旨味が咲き乱れます", "equip": "炭・コンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "6", "chair": "14"}, {"no": "2", "name": "カラオケバーオアシス", "item": "秋野菜を使った豚汁", "price": "700", "desc": "里芋・大根・にんじん・ごぼう・れんこん・しめじ等を使った具材たっぷり！！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "1", "desk": "3", "chair": "4"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "3", "name": "Re;st", "item": "ガーリックシュリンプ", "price": "700", "desc": "オススメのガーリックシュリンプはお酒と相性抜群！これだけでもGOOD！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "4", "name": "Wine Cave Raise", "item": "花咲く秋茸クリームペンネ", "price": "700", "desc": "秋茸の豊かな香りと花の彩りが華やぐ、秋のごちそうペンネ", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "5", "name": "おんのじ", "item": "十和田バラ焼きうどん", "price": "900", "desc": "横浜で大きく花開く「モンスターしいたけ」を、十和田名物のバラ焼き風焼うどんに仕上げました！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "6", "name": "日本料理 別亭 空海", "item": "カニクリームコロッケうにソース(２個入)", "price": "600", "desc": "美味しさの花が咲くこと間違いなし！毎回好評の逸品！！", "equip": "プロパンガス", "ext": "消火器", "tent": "2", "weight": "3", "desk": "5", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "7", "name": "焼肉らん太郎", "item": "ハラミ焼肉", "price": "800", "desc": "食欲の秋にピッタリ！肉の花が咲き誇る！旨味が溢れる絶品ハラミ！", "equip": "炭・コンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "6", "chair": "10"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "8", "name": "愛嬌酒場えにし", "item": "北海道より直送 ホタテ貝バター焼き", "price": "600", "desc": "北海道より直送のホタテ貝をガーリック醤油とバターで香ばしく焼きげました。", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "2"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "9", "name": "Ｂistoro maru", "item": "ゴルゴンゾーラのニョッキ(パン付き)", "price": "1000", "desc": "濃厚なゴルゴンゾーラが絡むもともちのニョッキがおいしい！！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "10", "name": "OsteriaAustro", "item": "エビのカダイフ揚げ金木犀の香りのソース", "price": "700", "desc": "金木犀の香りで花博を先取り！天然キノコスープと一緒にお楽しみください", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "3", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"total": true, "tent": "11", "weight": "20", "desk": "47", "chair": "98"}]}, {"id": "2", "title": "弁天通 2丁目", "sub": "さくら通り 〜 ベイスターズ通り", "map": "map-2chome.png", "rows": [{"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "11", "name": "鳥伊勢", "equip": "炭・コンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "0"}, {"no": "12", "name": "ヴィノテカ・サクラ", "item": "秋トリュフとボロネーゼの本格ラザニア", "price": "1,600", "desc": "花びらの如くトリュフをたっぷり削ったヴィノテカ・サクラのの特性ラザニアをお楽しみください", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "1", "desk": "2", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "13", "name": "エール・アンジュ", "item": "ステーキ串", "price": "800", "desc": "香ばしい香りの牛串、フランクフルトやポテトと冷えたドリンクでお楽しみください！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "0"}, {"no": "14", "name": "ドイツワインダイニング Bar&Dining Am Rhein", "item": "はまぽーくのカリーヴルスト（手作りソーセージ）", "price": "800", "desc": "秋は炭焼き！肉汁あふれるブランド豚「はまぽーく」の自家製ソーセージをベルリン名物カリーヴルストに", "equip": "炭・コンロ", "ext": "消火器", "tent": "1", "weight": "1", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "15", "name": "トイレキッチンカー"}, {"no": "16", "name": "日本たばこ産業㈱神奈川支社", "item": "横幕有り", "desk": "2", "chair": "0"}, {"no": "17", "name": "GOPPA一座「宴屋」× MASTER’S", "item": "ケサディーヤ", "price": "800", "desc": "トレンドフードが関内に！トルティーヤで秋の味覚を包みました。", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "3", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "18", "name": "YOKOHAMA BEER", "item": "横浜ビール", "price": "800", "desc": "華やかな味わいは花を連想させる！！関内で乾杯！", "equip": "無し", "ext": "無し", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "19", "name": "LOCO WALKER", "item": "かぼすサワー 焼酎お湯割り", "price": "800", "desc": "九州・大分の秋の風物詩「かぼす」をふんだんに使ったサワー・お湯割りをご用意！", "equip": "無し", "ext": "無し", "tent": "1", "weight": "1", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "20", "name": "GREEN×EXPO 2027 PRブース", "equip": "無し", "ext": "無し", "tent": "2", "weight": "4", "desk": "3", "chair": "4"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "21", "name": "焼き鳥HIGASHI", "item": "HIGASHI名物もつ煮込み", "price": "500", "desc": "食欲の秋はこれ！！じっくり煮込んだ熱々のもつ煮込みで心も体もほっかほか！！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "22", "name": "割烹 乃月", "item": "ふぐの唐揚げ", "price": "800", "desc": "これを食べなきゃ始まらない！！毎回恒例の逸品！", "equip": "無し", "ext": "無し", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "31", "name": "本部テント", "item": "横幕有り", "equip": "無し", "ext": "無し", "tent": "2", "weight": "2", "desk": "4", "chair": "8"}, {"no": "32", "name": "イベントステージエリア", "item": "横幕有り", "equip": "無し", "ext": "無し", "tent": "2", "weight": "3", "desk": "4", "chair": "4"}, {"no": "33", "name": "電気自動車 クラウンFCEV", "equip": "無し", "ext": "無し", "tent": "0", "weight": "0", "desk": "0", "chair": "0"}, {"no": "34", "name": "アットヨコハマ ガラポン抽選会", "equip": "無し", "ext": "無し", "tent": "1", "weight": "2", "desk": "2", "chair": "2"}, {"no": "35", "name": "JAFこども免許証", "equip": "無し", "ext": "無し", "tent": "1", "weight": "1", "desk": "2", "chair": "2"}, {"no": "36", "name": "横浜ビー・コルセアーズ", "equip": "無し", "ext": "無し", "tent": "1", "weight": "2", "desk": "2", "chair": "2"}, {"no": "37", "name": "マリンFM", "equip": "無し", "ext": "無し", "tent": "1", "weight": "1", "desk": "3", "chair": "4"}, {"no": "38", "name": "神奈川県酒造組合×トヨタモビリティ神奈川", "item": "日本酒 各種", "price": "300円～", "desc": "神奈川12蔵の日本酒を楽しめるよ！", "equip": "無し", "ext": "無し", "tent": "特注", "weight": "特注", "desk": "6", "chair": "10"}, {"total": true, "tent": "19", "weight": "30", "desk": "55", "chair": "84"}]}, {"id": "1", "title": "弁天通 1丁目", "sub": "ベイスターズ通り 〜 みなと大通り", "map": "map-1chome.png", "rows": [{"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "23", "name": "ムースヒルズダイナー", "item": "特製ナチョス", "price": "600", "desc": "メキシコ発祥のフードを関内でお楽しみください！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "24", "name": "ビストロ ドゥ シエル", "item": "サーモンときのこのキッシュ", "price": "800", "desc": "旬の食材をふんだんに使いました。チーズがをのせて焼き上げるため、カリカリした食感も楽しめます！", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "25", "name": "淡麗拉麺己巳 BASEGATE横浜関内店", "item": "チャーシュー盛り合わせ（四元豚肩ロース・鴨ロース）", "price": "700円～", "desc": "香ばしく燻した四元豚と鴨のチャーシュー盛り", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "2"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "26", "name": "グランドゥーカ関内馬車道店", "item": "シチリア伝統のイワシのパスタ「サルデ」", "price": "800", "desc": "シチリア郷土料理で華を添えます。秋の今", "equip": "カセットコンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "2", "chair": "0"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "27", "name": "バージーコ", "item": "食欲の牛ステーキ串", "price": "1000", "desc": "炭火で焼いた肉は、秋の屋外の関内にぴったり！！", "equip": "炭・コンロ", "ext": "消火器", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机1、イス4", "desk": "1", "chair": "4"}, {"no": "28", "name": "ThirdGrain", "tent": "1", "weight": "2", "desk": "1", "chair": "0"}, {"no": "29", "name": "横浜武道館／横浜ラウンジ", "tent": "1", "weight": "1", "desk": "1", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"no": "30", "name": "日本料理 空海 本店", "item": "空海の天ぷら", "desc": "大人気の天ぷら、子持鮎の炭火焼は必見！！", "equip": "炭・コンロ", "ext": "消火器", "tent": "2", "weight": "3", "desk": "9", "chair": "0"}, {"no": "机イス", "name": "机2、イス8", "desk": "2", "chair": "8"}, {"total": true, "tent": "9", "weight": "16", "desk": "31", "chair": "54"}]}]}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('data').textContent);
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  var TAG={'警備':['警備','tg-sec'],'打合せ':['打合せ','tg-mtg'],'全員':['全員集合','tg-all'],'MC':['MC','tg-mc'],'STAGE':['ステージ','tg-st'],'STAGE_END':['終了','tg-end'],'FM':['マリンFM','tg-fm']};
+  var RC={'STAGE':'r-st','STAGE_END':'','MC':'r-mc','FM':'r-fm','開始':'r-key'};
+  var PH={'準備':'ph-prep','営業・ステージ':'ph-show','撤収':'ph-down'};
+  function mins(t){var p=t.split(':');return Number(p[0])*60+Number(p[1]);}
+  /* schedule */
+  var h='<div class="legend"><span><span class="tag tg-st">ステージ</span>パフォーマンス開始</span><span><span class="tag tg-mc">MC</span>事前説明・呼び込み</span><span><span class="tag tg-fm">マリンFM</span>放送</span><span><span class="tag tg-sec">警備</span>警備・規制</span><span><span class="tag tg-all">全員集合</span>集合・打合せ</span></div><div class="nowbar" id="nowbar" hidden></div>';
+  D.schedule.forEach(function(p){
+    h+='<div class="phase '+PH[p.name]+'"><h2>'+esc(p.name)+'<small>'+esc(p.span)+'</small></h2>';
+    p.items.forEach(function(it,i){
+      var tg=TAG[it.k];
+      h+='<div class="row '+(RC[it.k]||'')+'" data-t="'+mins(it.t)+'"><div class="t">'+esc(it.t)+'</div><div class="m">'+(tg?'<span class="tag '+tg[1]+'">'+tg[0]+'</span>':'')+'<span class="x">'+esc(it.x)+'</span>'+it.sub.map(function(s){return '<div class="sub">'+esc(s)+'</div>';}).join('')+'</div></div>';
+    });
+    h+='</div>';
+  });
+  h+='<p class="note">主催者のタイムスケジュールをもとにしています。イベントスケジュールの詳細は別紙参照。</p>';
+  document.getElementById('v-schedule').innerHTML=h;
+  /* now / next on the day */
+  function tick(){
+    var now=new Date(), jst=new Date(now.getTime()+(now.getTimezoneOffset()+540)*60000);
+    var day=jst.getFullYear()+'-'+(jst.getMonth()+1)+'-'+jst.getDate();
+    var bar=document.getElementById('nowbar');
+    document.querySelectorAll('.row.is-now').forEach(function(r){r.classList.remove('is-now');});
+    if(day!=='2026-11-3'){bar.hidden=true;return;}
+    var m=jst.getHours()*60+jst.getMinutes(), rows=[].slice.call(document.querySelectorAll('#v-schedule .row'));
+    var stages=rows.filter(function(r){return r.classList.contains('r-st');});
+    var next=stages.filter(function(r){return Number(r.dataset.t)>=m;})[0];
+    var cur=null; rows.forEach(function(r){if(Number(r.dataset.t)<=m) cur=r;});
+    if(cur) cur.classList.add('is-now');
+    bar.hidden=false;
+    bar.innerHTML='<b>いま '+jst.getHours()+':'+('0'+jst.getMinutes()).slice(-2)+'</b>'+(next?'<span>次のステージ：'+next.querySelector('.t').textContent+'　'+esc(next.querySelector('.x').textContent.replace(/\s*(パフォーマンス)?\s*(開始)$/,''))+'</span>':'<span>本日のステージは終了しました</span>');
+  }
+  tick(); setInterval(tick,60000);
+  /* map */
+  var mh='<div class="legend"><span><i class="sw peach"></i>出店ブース（数字＝配置図No）</span><span><i class="sw blue"></i>「6」＝共用テーブル席（机・イス）</span><span><i class="sw pink"></i>注意書き・横幕</span><span>連なったテント2つ→重り3個、3つ→重り4個</span></div>';
+  D.blocks.forEach(function(b){
+    mh+='<div class="mapcard"><h2>'+esc(b.title)+'<small>'+esc(b.sub)+'</small></h2><div class="mapscroll"><img src="'+b.map+'" alt="'+esc(b.title)+'の出店配置図" loading="lazy"></div></div>';
+  });
+  mh+='<p class="note">スマホでは地図を横にスクロールできます。</p><div class="rent"><div>テント　使用 <b>39</b> ／ レンタル <b>42</b></div><div>重り　使用 <b>66</b> ／ レンタル <b>66</b></div><div>机　使用 <b>133</b> ／ レンタル <b>138</b></div><div>椅子　使用 <b>236</b> ／ レンタル <b>230</b></div></div>';
+  document.getElementById('v-map').innerHTML=mh;
+  /* list */
+  var SP={'本部テント':'sp-hq','マリンFM':'sp-fm','イベントステージエリア':'sp-st'};
+  var state={blk:'all',q:'',fire:false};
+  document.getElementById('v-list').innerHTML='<div class="tools"><button type="button" class="chip" data-b="all" aria-pressed="true">すべて</button><button type="button" class="chip" data-b="3" aria-pressed="false">3丁目</button><button type="button" class="chip" data-b="2" aria-pressed="false">2丁目</button><button type="button" class="chip" data-b="1" aria-pressed="false">1丁目</button><button type="button" class="chip" id="fire" aria-pressed="false">火器を使うブース</button><input class="search" id="q" type="search" placeholder="店名・Noで探す" aria-label="店名・Noで探す"></div><div id="listbody"></div>';
+  function renderList(){
+    var out='', q=state.q.trim().toLowerCase(), any=false;
+    D.blocks.forEach(function(b){
+      if(state.blk!=='all'&&state.blk!==b.id) return;
+      var cards='', tot=null, tb={n:0,d:0,c:0};
+      b.rows.forEach(function(r){
+        if(r.total){tot=r;return;}
+        if((r.no||'').indexOf('机')===0){ tb.n++; tb.d+=Number(r.desk)||0; tb.c+=Number(r.chair)||0; return; }
+        var hay=(r.no+' '+(r.name||'')+' '+(r.item||'')).toLowerCase();
+        if(q&&hay.indexOf(q)<0) return;
+        var fire=r.equip&&r.equip!=='無し';
+        if(state.fire&&!fire) return;
+        any=true;
+        var item=r.item==='横幕有り'?'<span class="lab flag">横幕有り</span>':esc(r.item||'');
+        cards+='<div class="booth '+(SP[r.name]||'')+'"><div class="no">'+esc(r.no)+'</div><div class="nm">'+esc(r.name)+'</div><div class="it">'+item+(r.price?'<b>'+esc(r.price)+(/円/.test(r.price)?'':'円')+'</b>':'')+'</div>'+
+          (r.desc?'<div class="ds">'+esc(r.desc)+'</div>':'')+
+          '<div class="meta">'+(fire?'<span class="lab fire">'+esc(r.equip)+'</span>':'')+(r.ext&&r.ext!=='無し'?'<span>'+esc(r.ext)+'</span>':'')+
+          '<span class="cnt">テント '+esc(r.tent||'–')+'・重り '+esc(r.weight||'–')+'・机 '+esc(r.desk||'–')+'・イス '+esc(r.chair||'–')+'</span></div></div>';
+      });
+      if(!cards) return;
+      out+='<h2 class="blockh">'+esc(b.title)+'<small>'+esc(b.sub)+'</small></h2><div class="cards">'+cards+'</div>';
+      if(!q&&!state.fire){
+        if(tb.n) out+='<div class="tot"><span class="lab tbl">6 共用テーブル席</span> '+tb.n+'か所（机 '+tb.d+'・イス '+tb.c+'）　配置は「配置図」タブの「6」の位置です</div>';
+        if(tot) out+='<div class="tot">'+esc(b.title)+' 合計（テーブル席を含む）：テント '+tot.tent+'・重り '+tot.weight+'・机 '+tot.desk+'・イス '+tot.chair+'</div>';
+      }
+    });
+    document.getElementById('listbody').innerHTML=out||'<div class="empty">見つかりませんでした。</div>';
+  }
+  document.querySelectorAll('.chip[data-b]').forEach(function(c){c.onclick=function(){state.blk=c.dataset.b;document.querySelectorAll('.chip[data-b]').forEach(function(x){x.setAttribute('aria-pressed',String(x===c));});renderList();};});
+  var fb=document.getElementById('fire'); fb.onclick=function(){state.fire=!state.fire;fb.setAttribute('aria-pressed',String(state.fire));renderList();};
+  document.getElementById('q').addEventListener('input',function(e){state.q=e.target.value;renderList();});
+  renderList();
+  /* tabs */
+  var views=['schedule','map','list'];
+  function show(){var v=(location.hash||'').slice(1); if(views.indexOf(v)<0) v='schedule';
+    views.forEach(function(n){document.getElementById('v-'+n).hidden=(n!==v);});
+    document.querySelectorAll('nav.tabs a').forEach(function(a){if(a.dataset.v===v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
+  window.addEventListener('hashchange',function(){show();window.scrollTo(0,0);}); show();
+})();
+</script>
+
+</body>
+</html>
