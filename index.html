@@ -84,6 +84,8 @@ main .wrap{padding-block:18px 48px}
 .bmark{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:4px solid #e2725b;box-shadow:0 0 0 4px rgba(255,255,255,.85);pointer-events:none;animation:bpulse 1.2s ease-in-out infinite}
 .blabel{position:absolute;transform:translate(-50%,-100%);margin-top:-30px;background:#e2725b;color:#fff;font-weight:700;font-size:13px;border-radius:8px;padding:3px 10px;white-space:nowrap;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .blabel.down{transform:translate(-50%,0);margin-top:30px}
+.totop{margin-left:auto;font:inherit;font-family:var(--display);font-weight:700;font-size:13px;color:var(--peach-ink);background:var(--peach);border:1.5px solid var(--peach-bd);border-radius:999px;padding:3px 12px;cursor:pointer;white-space:nowrap}
+.totop:hover{background:var(--panel)}
 .backbar{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;font-weight:700}
 .backbar a{color:var(--peach-ink)}
 .flycard{scroll-margin-top:64px}
@@ -200,11 +202,15 @@ main .wrap{padding-block:18px 48px}
   fh+='</div></div></div>';
   var mh='<div class="legend"><span><i class="sw peach"></i>出店ブース（数字＝配置図No）</span><span><i class="sw blue"></i>「6」＝共用テーブル席（机・イス）</span><span><i class="sw pink"></i>注意書き・横幕</span><span>連なったテント2つ→重り3個、3つ→重り4個</span></div>';
   D.blocks.forEach(function(b){
-    mh+='<div class="mapcard" id="mc-'+b.id+'"><h2>'+esc(b.title)+'<small>'+esc(b.sub)+'</small></h2><div class="mapscroll"><div class="mapinner"><img src="'+b.map+'" alt="'+esc(b.title)+'の出店配置図"></div></div></div>';
+    mh+='<div class="mapcard" id="mc-'+b.id+'"><h2>'+esc(b.title)+'<small>'+esc(b.sub)+'</small><button type="button" class="totop">↑ 会場マップへ戻る</button></h2><div class="mapscroll"><div class="mapinner"><img src="'+b.map+'" alt="'+esc(b.title)+'の出店配置図"></div></div></div>';
   });
   mh+='<p class="note">スマホでは地図を横にスクロールできます。</p><div class="rent"><div>テント　使用 <b>39</b> ／ レンタル <b>42</b></div><div>重り　使用 <b>66</b> ／ レンタル <b>66</b></div><div>机　使用 <b>133</b> ／ レンタル <b>138</b></div><div>椅子　使用 <b>236</b> ／ レンタル <b>230</b></div></div>';
   mh+='<div class="flyfull"><h2>フライヤー（全体）</h2><a href="flyer-full.jpg" target="_blank" rel="noopener" aria-label="フライヤーを拡大して開く"><img src="flyer-full.jpg" alt="第23回関内フード＆ハイカラフェスタ 出店配置図と一品紹介のフライヤー" width="1450" height="2048" loading="lazy"></a><p class="note" style="margin:0">タップすると大きな画像で開きます。</p></div>';
   document.getElementById('v-map').innerHTML=fh+mh;
+  document.getElementById('v-map').addEventListener('click',function(e){
+    if(!e.target.closest('.totop')) return;
+    document.querySelector('.flycard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  });
   function showBooth(no,name){
     var p=D.boothpos[no]; if(!p) return;
     document.querySelectorAll('.bmark,.blabel,.backbar').forEach(function(x){x.remove();});
@@ -215,9 +221,9 @@ main .wrap{padding-block:18px 48px}
     inner.appendChild(m); inner.appendChild(l); card.classList.add('hit');
     var bar=document.createElement('div'); bar.className='backbar';
     var nolist=(no==='15'||no==='16'||no==='31'||no==='32');
-    bar.innerHTML='<a href="#map" class="bk">↑ 会場マップに戻る</a>'+(nolist?'':'<a href="#list" class="gl">No.'+no+' を出店者一覧で見る →</a>');
+    bar.innerHTML=(nolist?'':'<a href="#list" class="gl">No.'+no+' を出店者一覧で見る →</a>');
     card.appendChild(bar);
-    bar.querySelector('.bk').addEventListener('click',function(e){e.preventDefault(); document.querySelector('.flycard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
+    if(nolist) bar.remove();
     var gl=bar.querySelector('.gl'); if(gl) gl.addEventListener('click',function(e){e.preventDefault(); goList(no); location.hash='list';});
     var smooth=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     card.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'});
