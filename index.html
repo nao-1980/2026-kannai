@@ -15,6 +15,7 @@ body{margin:0}
   --peach:#fde3d6; --peach-ink:#8a4a36; --peach-bd:#f3c6b0;
   --sky:#dcebf8; --sky-ink:#2f5578; --mint:#d9f0e2; --mint-ink:#2e6b48;
   --pink:#fbd9df; --pink-ink:#9a3448; --lav:#ece6f8; --lav-ink:#5b4a8a; --lemon:#fff2c9; --lemon-ink:#7d5f10;
+  --c3:#fde2e2; --c3-ink:#b0322f; --c3-bd:#efaeac; --c2:#dcf2e3; --c2-ink:#237a45; --c2-bd:#a3d8b5; --c1:#dcecfa; --c1-ink:#1f6aa8; --c1-bd:#a5c9ec;
   --fm:#d8ecfa; --fm-ink:#0b5f9c; --table:#e7f0fa; --table-ink:#46698d; --fire:#ffecd2; --fire-ink:#8a5410;
   --display:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
   --body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
@@ -23,11 +24,13 @@ body{margin:0}
   --ground:#16181c; --panel:#1f232a; --ink:#e8ebef; --muted:#a5afba; --line:#2e343d;
   --peach:#4a3128; --peach-ink:#ffcdb6; --peach-bd:#6a4535; --sky:#233a52; --sky-ink:#b9d7f2; --mint:#1f3d2d; --mint-ink:#b6e6c8;
   --pink:#4a2630; --pink-ink:#ffc2ce; --lav:#33294d; --lav-ink:#d7ccf5; --lemon:#40371b; --lemon-ink:#f5df9c;
+  --c3:#4a2426; --c3-ink:#ffb3ae; --c3-bd:#7a3b3c; --c2:#1f3d2b; --c2-ink:#a8e3bd; --c2-bd:#2f6544; --c1:#1e3550; --c1-ink:#a9d1f5; --c1-bd:#31577e;
   --fm:#1d3b55; --fm-ink:#a9d6fb; --table:#22303f; --table-ink:#a9c4e0; --fire:#46351d; --fire-ink:#ffd9a3; color-scheme:dark}}
 :root[data-theme="dark"]{
   --ground:#16181c; --panel:#1f232a; --ink:#e8ebef; --muted:#a5afba; --line:#2e343d;
   --peach:#4a3128; --peach-ink:#ffcdb6; --peach-bd:#6a4535; --sky:#233a52; --sky-ink:#b9d7f2; --mint:#1f3d2d; --mint-ink:#b6e6c8;
   --pink:#4a2630; --pink-ink:#ffc2ce; --lav:#33294d; --lav-ink:#d7ccf5; --lemon:#40371b; --lemon-ink:#f5df9c;
+  --c3:#4a2426; --c3-ink:#ffb3ae; --c3-bd:#7a3b3c; --c2:#1f3d2b; --c2-ink:#a8e3bd; --c2-bd:#2f6544; --c1:#1e3550; --c1-ink:#a9d1f5; --c1-bd:#31577e;
   --fm:#1d3b55; --fm-ink:#a9d6fb; --table:#22303f; --table-ink:#a9c4e0; --fire:#46351d; --fire-ink:#ffd9a3; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
@@ -117,6 +120,21 @@ main .wrap{padding-block:18px 48px}
 .flyfull h2{margin:0;font-family:var(--display);font-size:18px;justify-self:start}
 .flyfull a{display:block;line-height:0}
 .flyfull img{display:block;max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);width:auto;height:auto;border-radius:6px;border:1px solid var(--line)}
+/* 丁目ごとの色（フライヤーと同じ：3丁目＝赤、2丁目＝緑、1丁目＝青） */
+.ch-3{--ch:var(--c3);--ch-ink:var(--c3-ink);--ch-bd:var(--c3-bd)}
+.ch-2{--ch:var(--c2);--ch-ink:var(--c2-ink);--ch-bd:var(--c2-bd)}
+.ch-1{--ch:var(--c1);--ch-ink:var(--c1-ink);--ch-bd:var(--c1-bd)}
+.mapcard.ch-3,.mapcard.ch-2,.mapcard.ch-1{border:2px solid var(--ch-bd);padding:0 0 12px;overflow:hidden}
+.mapcard[class*="ch-"]>h2{background:var(--ch);color:var(--ch-ink);padding:9px 14px;align-items:center}
+.mapcard[class*="ch-"]>h2 small{color:var(--ch-ink);opacity:.85}
+.mapcard[class*="ch-"]>.mapscroll,.mapcard[class*="ch-"]>.backbar{margin:0 14px}
+.chbadge{display:inline-grid;place-items:center;min-width:56px;height:30px;padding:0 10px;border-radius:8px;background:var(--ch-ink);color:var(--panel);font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.02em}
+.mapcard[class*="ch-"] .totop{color:var(--ch-ink);background:var(--panel);border-color:var(--ch-bd)}
+.blockh{scroll-margin-top:64px}
+.blockh[class*="ch-"]{background:var(--ch);color:var(--ch-ink);border-left:6px solid var(--ch-ink);border-radius:10px;padding:8px 14px;align-items:center;margin-top:14px}
+.blockh[class*="ch-"] small{color:var(--ch-ink);opacity:.85}
+.cards[class*="ch-"] .booth{border-left:5px solid var(--ch-bd)}
+.cards[class*="ch-"] .booth .no{border-color:var(--ch-ink)}
 /* list */
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .chip{font:inherit;font-family:var(--display);font-weight:700;font-size:14px;border:1.5px solid var(--peach-bd);background:var(--panel);color:var(--peach-ink);border-radius:999px;padding:5px 14px;cursor:pointer}
@@ -202,7 +220,7 @@ main .wrap{padding-block:18px 48px}
   fh+='</div></div></div>';
   var mh='<div class="legend"><span><i class="sw peach"></i>出店ブース（数字＝配置図No）</span><span><i class="sw blue"></i>「6」＝共用テーブル席（机・イス）</span><span><i class="sw pink"></i>注意書き・横幕</span><span>連なったテント2つ→重り3個、3つ→重り4個</span></div>';
   D.blocks.forEach(function(b){
-    mh+='<div class="mapcard" id="mc-'+b.id+'"><h2>'+esc(b.title)+'<small>'+esc(b.sub)+'</small><button type="button" class="totop">↑ 会場マップへ戻る</button></h2><div class="mapscroll"><div class="mapinner"><img src="'+b.map+'" alt="'+esc(b.title)+'の出店配置図"></div></div></div>';
+    mh+='<div class="mapcard ch-'+b.id+'" id="mc-'+b.id+'"><h2><span class="chbadge">'+b.id+'丁目</span>'+esc(b.title.replace(/\s*\d丁目$/,''))+'<small>'+esc(b.sub)+'</small><button type="button" class="totop">↑ 会場マップへ戻る</button></h2><div class="mapscroll"><div class="mapinner"><img src="'+b.map+'" alt="'+esc(b.title)+'の出店配置図"></div></div></div>';
   });
   mh+='<p class="note">スマホでは地図を横にスクロールできます。</p><div class="rent"><div>テント　使用 <b>39</b> ／ レンタル <b>42</b></div><div>重り　使用 <b>66</b> ／ レンタル <b>66</b></div><div>机　使用 <b>133</b> ／ レンタル <b>138</b></div><div>椅子　使用 <b>236</b> ／ レンタル <b>230</b></div></div>';
   mh+='<div class="flyfull"><h2>フライヤー（全体）</h2><a href="flyer-full.jpg" target="_blank" rel="noopener" aria-label="フライヤーを拡大して開く"><img src="flyer-full.jpg" alt="第23回関内フード＆ハイカラフェスタ 出店配置図と一品紹介のフライヤー" width="1450" height="2048" loading="lazy"></a><p class="note" style="margin:0">タップすると大きな画像で開きます。</p></div>';
@@ -264,7 +282,7 @@ main .wrap{padding-block:18px 48px}
           '<span class="cnt">テント '+esc(r.tent||'–')+'・重り '+esc(r.weight||'–')+'・机 '+esc(r.desk||'–')+'・イス '+esc(r.chair||'–')+'</span></div></div>';
       });
       if(!cards) return;
-      out+='<h2 class="blockh">'+esc(b.title)+'<small>'+esc(b.sub)+'</small></h2><div class="cards">'+cards+'</div>';
+      out+='<h2 class="blockh ch-'+b.id+'"><span class="chbadge">'+b.id+'丁目</span>'+esc(b.title.replace(/\s*\d丁目$/,''))+'<small>'+esc(b.sub)+'</small></h2><div class="cards ch-'+b.id+'">'+cards+'</div>';
       if(!q&&!state.fire){
         if(tb.n) out+='<div class="tot"><span class="lab tbl">6 共用テーブル席</span> '+tb.n+'か所（机 '+tb.d+'・イス '+tb.c+'）　配置は「配置図」タブの「6」の位置です</div>';
         if(tot) out+='<div class="tot">'+esc(b.title)+' 合計（テーブル席を含む）：テント '+tot.tent+'・重り '+tot.weight+'・机 '+tot.desk+'・イス '+tot.chair+'</div>';
