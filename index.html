@@ -131,6 +131,7 @@ main .wrap{padding-block:18px 48px}
 .chbadge{display:inline-grid;place-items:center;min-width:56px;height:30px;padding:0 10px;border-radius:8px;background:var(--ch-ink);color:var(--panel);font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.02em}
 .mapcard[class*="ch-"] .totop{color:var(--ch-ink);background:var(--panel);border-color:var(--ch-bd)}
 .blockh{scroll-margin-top:64px}
+.mapcard.hit[class*="ch-"]{border:3px solid #e2725b;box-shadow:0 0 0 4px rgba(226,114,91,.25)}
 .blockh[class*="ch-"]{background:var(--ch);color:var(--ch-ink);border-left:6px solid var(--ch-ink);border-radius:10px;padding:8px 14px;align-items:center;margin-top:14px}
 .blockh[class*="ch-"] small{color:var(--ch-ink);opacity:.85}
 .cards[class*="ch-"] .booth{border-left:5px solid var(--ch-bd)}
@@ -244,7 +245,9 @@ main .wrap{padding-block:18px 48px}
     if(nolist) bar.remove();
     var gl=bar.querySelector('.gl'); if(gl) gl.addEventListener('click',function(e){e.preventDefault(); goList(no); location.hash='list';});
     var smooth=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    card.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'});
+    var r=card.getBoundingClientRect(), navH=(document.querySelector('nav.tabs')||{offsetHeight:0}).offsetHeight;
+    var avail=window.innerHeight-navH, target=window.scrollY+r.top-navH-Math.max(0,(avail-r.height)/2);
+    window.scrollTo({top:Math.max(0,target),behavior:smooth?'smooth':'auto'});
     setTimeout(function(){ sc.scrollLeft=Math.max(0, inner.offsetWidth*p.x/100 - sc.clientWidth/2); }, smooth?350:0);
   }
   (function(){
