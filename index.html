@@ -175,6 +175,9 @@ main .wrap{padding-block:18px 48px}
 .booth .it{font-size:14px;min-width:0}
 .booth .it b{font-variant-numeric:tabular-nums;margin-left:6px}
 .booth .ds{grid-column:2;font-size:12.5px;color:var(--muted);line-height:1.5}
+.booth .ph{grid-column:1/-1;margin:8px 0 2px}
+.booth .ph img{display:block;width:100%;max-width:440px;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff}
+.booth .ph figcaption{font-size:12px;color:var(--muted);margin-top:4px}
 .booth .meta{grid-column:2;display:flex;flex-wrap:wrap;gap:4px 8px;font-size:12px;color:var(--muted);align-items:center}
 .lab{border-radius:4px;padding:0 6px;font-weight:700;font-size:12px}
 .lab.fire{background:var(--fire);color:var(--fire-ink)} .lab.flag{background:var(--pink);color:var(--pink-ink)} .lab.tbl{background:var(--table);color:var(--table-ink)}
@@ -325,10 +328,11 @@ main .wrap{padding-block:18px 48px}
   })();
   /* list */
   var SP={'本部テント':'sp-hq','マリンFM':'sp-fm','イベントステージエリア':'sp-st'};
+  var PH=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','17','18','19','21','22','23','24','25','26','27','28','29','30','38'];
   var state={blk:'all',q:'',fire:false};
   document.getElementById('v-list').innerHTML='<div class="tools"><button type="button" class="chip" data-b="all" aria-pressed="true">すべて</button><button type="button" class="chip" data-b="3" aria-pressed="false">3丁目</button><button type="button" class="chip" data-b="2" aria-pressed="false">2丁目</button><button type="button" class="chip" data-b="1" aria-pressed="false">1丁目</button><button type="button" class="chip" id="fire" aria-pressed="false">火器を使うブース</button><input class="search" id="q" type="search" placeholder="店名・Noで探す" aria-label="店名・Noで探す"></div><div id="listbody"></div>';
   function renderList(){
-    var out='', q=state.q.trim().toLowerCase(), any=false;
+    var out='', q=state.q.trim().toLowerCase(), any=false, hits=[];
     D.blocks.forEach(function(b){
       if(state.blk!=='all'&&state.blk!==b.id) return;
       var cards='', tot=null, tb={n:0,d:0,c:0};
@@ -339,9 +343,9 @@ main .wrap{padding-block:18px 48px}
         if(q&&(/^\d+$/.test(q)?r.no!==q:hay.indexOf(q)<0)) return;
         var fire=r.equip&&r.equip!=='無し';
         if(state.fire&&!fire) return;
-        any=true;
+        any=true; hits.push(r.no);
         var item=r.item==='横幕有り'?'<span class="lab flag">横幕有り</span>':esc(r.item||'');
-        cards+='<div class="booth '+(SP[r.name]||'')+'"><div class="no">'+esc(r.no)+'</div><div class="nm">'+esc(r.name)+'</div><div class="it">'+item+(r.price?'<b>'+esc(r.price)+(/円/.test(r.price)?'':'円')+'</b>':'')+'</div>'+
+        cards+='<div class="booth '+(SP[r.name]||'')+'" data-no="'+esc(r.no)+'"><div class="no">'+esc(r.no)+'</div><div class="nm">'+esc(r.name)+'</div><div class="it">'+item+(r.price?'<b>'+esc(r.price)+(/円/.test(r.price)?'':'円')+'</b>':'')+'</div>'+
           (r.desc?'<div class="ds">'+esc(r.desc)+'</div>':'')+
           '<div class="meta">'+(fire?'<span class="lab fire">'+esc(r.equip)+'</span>':'')+(r.ext&&r.ext!=='無し'?'<span>'+esc(r.ext)+'</span>':'')+
           '<span class="cnt">テント '+esc(r.tent||'–')+'・重り '+esc(r.weight||'–')+'・机 '+esc(r.desk||'–')+'・イス '+esc(r.chair||'–')+'</span></div></div>';
@@ -354,6 +358,12 @@ main .wrap{padding-block:18px 48px}
       }
     });
     document.getElementById('listbody').innerHTML=out||'<div class="empty">見つかりませんでした。</div>';
+    if(hits.length===1&&PH.indexOf(hits[0])>=0){
+      var bc=document.querySelector('#listbody .booth[data-no="'+hits[0]+'"]');
+      if(bc){ var f=document.createElement('figure'); f.className='ph';
+        f.innerHTML='<img src="photos/shop-'+('0'+hits[0]).slice(-2)+'.jpg" alt="No.'+hits[0]+' の一品（フライヤー掲載）" loading="lazy"><figcaption>フライヤー「一品紹介」より</figcaption>';
+        bc.insertBefore(f,bc.querySelector('.meta')); }
+    }
   }
   document.querySelectorAll('.chip[data-b]').forEach(function(c){c.onclick=function(){state.blk=c.dataset.b;document.querySelectorAll('.chip[data-b]').forEach(function(x){x.setAttribute('aria-pressed',String(x===c));});renderList();};});
   var fb=document.getElementById('fire'); fb.onclick=function(){state.fire=!state.fire;fb.setAttribute('aria-pressed',String(state.fire));renderList();};
